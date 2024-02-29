@@ -1,4 +1,4 @@
-package src.ws._240214;
+package ws._240214;
 
 import java.net.*;
 import java.io.*;
