@@ -10,7 +10,7 @@ public class 리모컨 {
 
 	static String chanel;
 	static int N, answer;
-	static String[] error;
+	static String buttons = "0123456789";
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -18,16 +18,28 @@ public class 리모컨 {
 		chanel = br.readLine();
 		
 		N = Integer.parseInt(br.readLine());
+		if(N > 0){
+			st = new StringTokenizer(br.readLine());
+			for (int i = 0; i < N; i++) {
+				buttons = buttons.replace(st.nextToken(), "");
+			}
+		}	
+		answer = Math.abs(Integer.parseInt(chanel) - 100);
+		recursive("");
 		
-		error = new String[N];
-		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < N; i++) {
-			error[i] = st.nextToken();	
-		}
-		answer = Integer.MAX_VALUE;
-		recursive("", );
 		System.out.println(answer);
-		System.out.println(Arrays.toString(error));
+	}
+	private static void recursive(String num) {
+		if(num.length() > chanel.length()+1){
+			return;
+		}
+		if(num.length() != 0){
+			answer = Math.min(Math.abs(Integer.parseInt(num) - Integer.parseInt(chanel)) + num.length(), answer);
+		}
+		for (int i = 0; i < buttons.length(); i++) {
+			recursive(num + (buttons.charAt(i)+""));
+		}
+
 	}
 
 }
