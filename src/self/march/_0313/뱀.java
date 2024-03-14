@@ -52,9 +52,13 @@ public class 뱀 {
         
         answer = 0;
         dir = 0;
+        int cnt = 0;
         while(true) {
         	answer++;
-        	int[] cur = q.poll();
+        	if(answer == changes[cnt].time) {
+        		
+        	}
+        	int[] cur = q.peek();
         	int ni = cur[0] + di[dir];
         	int nj = cur[1] + dj[dir];
         	if(ni < 0 || ni >= N || nj < 0 || nj >= N || maps[ni][nj] == 1) break;
