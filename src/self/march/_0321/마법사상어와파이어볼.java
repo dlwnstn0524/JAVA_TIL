@@ -83,8 +83,17 @@ public class 마법사상어와파이어볼 {
 	}
 
 	private static void magic() {
+		for (FireBall cur : fireBalls) {
+            //r, c값 변경
+            // +N을 하는 이유는 이동하였을 때 음수가 나올 수 있기 때문입니다.
+            int tempR = (cur.r + N + dr[cur.d] * (cur.s%N)) % N;
+            int tempC = (cur.c + N + dc[cur.d] * (cur.s%N)) % N;
+            cur.r = tempR;
+            cur.c = tempC;
+            //이동한 파이어볼 저장
+            maps[cur.r][cur.c].add(cur);
+        }
 		
-		print();
 	}
 
 }
