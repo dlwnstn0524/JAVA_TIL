@@ -29,8 +29,9 @@ public class 퇴사 {
 			if(concils[i][0]+i <= N) {				
 				dp[concils[i][0]+i] = Math.max(dp[concils[i][0]+i], dp[i] + concils[i][1]);
 			}
+			dp[i+1] = Math.max(dp[i+1], dp[i]);
 		}
-		System.out.println(Arrays.toString(dp));
+		System.out.println(dp[N]);
 	}
 
 }
